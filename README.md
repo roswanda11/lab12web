@@ -160,7 +160,7 @@ header('location: ' . site_url('/'));
     dari 2000 tahun.', 'artikel-kedua');
     
 ```
-nah jika sudah maka data akan berubah.
+- Nah jika sudah maka data akan berubah.
 
 ![image](https://github.com/roswanda11/lab12web/assets/115516632/c297bf8b-681f-4bb7-8f53-7d4b7e142def)
 
@@ -567,7 +567,7 @@ Dan data pun berhasil diapus.
 
 ![image](https://github.com/roswanda11/lab12web/assets/115516632/4171c45f-7af8-4bc7-a472-3946e2cab35c)
 
-Maka tampilam akan kembali ke index, header logout berubah menjadi login, bagian tambah artikel dan about saat kita ingin melihatnya kita harus melakukan login terlebih dahulu.
+Maka tampilan akan kembali ke index, header logout berubah menjadi login, bagian tambah artikel dan about saat kita ingin melihatnya kita harus melakukan login terlebih dahulu.
 
 ![image](https://github.com/roswanda11/lab12web/assets/115516632/e7a45bf5-ade0-433b-9452-562eb88d47c7)
 
