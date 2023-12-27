@@ -22,7 +22,7 @@
 
 ## **Langkah-langkah Praktikum**
 
-## 1. DDL: Table User
+## 1. Membuat DDL: Table User.
 
 ```sql
 CREATE TABLE `user`(
@@ -39,7 +39,7 @@ INSERT INTO `user` (`username`, `password`) VALUES ('admin', md5('admin'));
 
 - Di database sekarang sudah ada tabel user untuk admin
 
-## 2. File: login_session.php
+## 2. Membuat File: login_session.php
 
 Deskripsi: digunakan untuk pengecekan sesi login, file ini nantinya akan di include di setiap halaman yang membutuhkan login.
 
@@ -51,7 +51,7 @@ header('location: login.php');
 ?>
 ```
 
-## 3. File: login.php
+## 3. Membuat File: login.php
 
 ```php
 <?php
@@ -98,7 +98,7 @@ include_once 'footer.php';
 ?>
 
 ```
-## 4. File: login.php
+## 4. Membuat File: login.php
 
 ```
 <?php
@@ -106,7 +106,28 @@ session_destroy();
 header('location: ' . site_url('/'));
 ?>
 ```
-## 5. Buat dulu tabel daabase untuk artikel
+## 5. Membuat method logout seperti berikut :
+```
+<?php
+session_destroy();
+header('location: ' . site_url('/'));
+?>
+```
+- Saya menggunakan project sebelumnya yaitu rpoject CRUD untuk data barang. maka tampilan index akan seperti ini:
+
+![image](https://github.com/roswanda11/lab12web/assets/115516632/54cf8712-9b2f-4244-9133-782e2b83936e)
+
+- Terlihat ada menu login di header. saya telah menambahkannya. jika di klik akan seperti ini:
+
+![image](https://github.com/roswanda11/lab12web/assets/115516632/1e0286ea-6865-49a2-a46d-70c9e101a172)
+
+- Sekarang kita bisa melakukan login session. note : untuk username : admin untuk password : admin
+
+![image](https://github.com/roswanda11/lab12web/assets/115516632/f026cb80-ab57-4e86-82ef-e1c9ba6b9eb2)
+
+- Jika sudah berhasil login maka bagian login akan berubah jadi logout. sekarang, tugas kita adalah mengisi artikel dan membuat CRUD untuk artikel.
+
+## 6. Membuat tabel database untuk artikel.
 
 ```
     CREATE TABLE artikel (
@@ -120,7 +141,11 @@ header('location: ' . site_url('/'));
     );
 ```
 
-## 6. Kita isi tabelnya dengan konten :
+![image](https://github.com/roswanda11/lab12web/assets/115516632/0d47a291-ca7b-4137-afa7-ae4fc669744f)
+
+- Di database sekarang sudah ada tabel artikel. selanjutnya:
+
+## 7. Kita isi tabelnya dengan konten :
 
 ```
     INSERT INTO artikel (judul, isi, slug) VALUE
@@ -135,8 +160,11 @@ header('location: ' . site_url('/'));
     dari 2000 tahun.', 'artikel-kedua');
     
 ```
+nah jika sudah maka data akan berubah.
 
-## 7. sekarang kita akan mengisi bagian artikel dengan data yang sudah kita tambahkan. caranya :
+![image](https://github.com/roswanda11/lab12web/assets/115516632/c297bf8b-681f-4bb7-8f53-7d4b7e142def)
+
+## 8. Sekarang kita akan mengisi bagian artikel dengan data yang sudah kita tambahkan. Caranya :
 
 ```
 <?php
@@ -181,7 +209,11 @@ $result = mysqli_query($conn, $sql);
 <?php include_once('template/footer.php'); ?>
 ```
 
-## 8. Buat file admin.php di class artikel.
+- Maka outputnya akan seperti ini :
+
+![image](https://github.com/roswanda11/lab12web/assets/115516632/6dc17884-72bb-4dce-ac81-8dffcaed1cf7)
+
+## 9. Membuat file admin.php di class artikel.
 
 ```
 <?php
@@ -262,7 +294,11 @@ $result = mysqli_query($conn, $sql);
 <?php include_once('template/footer.php'); ?>
 ```
 
-## 9. Sekarang kita buat file add.php untuk menambahkan artikel.
+- Maka tampilannya akan seperti ini :
+
+![image](https://github.com/roswanda11/lab12web/assets/115516632/237bb491-f028-4cb5-8d0b-15c81d9e0dff)
+
+## 10. Sekarang kita buat file add.php untuk menambahkan artikel.
 
 ```
 <?php
@@ -323,7 +359,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </html>
 ```
 
-## 10. Buat file ubah.php untuk mengubah data.
+- Outputnya akan seperti ini saat kita klik button tambah artikel
+
+![image](https://github.com/roswanda11/lab12web/assets/115516632/446101fa-a7c3-4f23-bbb5-e0e14cc32f8d)
+
+- Misal kita tambahkan data baru seperti berikut:
+
+![image](https://github.com/roswanda11/lab12web/assets/115516632/51c456c6-4a97-4a83-a85f-7142d7c3b8ec)
+
+- Setelah di klik simpan maka data baru akan muncul seperti berikut :
+
+![image](https://github.com/roswanda11/lab12web/assets/115516632/c7000b9d-e73b-4bea-a157-73fc0c687ab1)
+
+![image](https://github.com/roswanda11/lab12web/assets/115516632/2cb0538c-65be-4848-9980-ec5ec20777f3)
+
+## 11. Buat file ubah.php untuk mengubah data.
 
 ```
 <?php
@@ -391,8 +441,23 @@ $row = mysqli_fetch_array($result);
 </html>
 
 ```
+- Outputnya akan seperti ini :
 
-## 11. Setelah itu kita buat file hapus.php untuk menghapus data
+![image](https://github.com/roswanda11/lab12web/assets/115516632/3465096a-5259-4074-bf68-2cf8bfa76f45)
+
+- Misalnya, kita ingin mengubah judul artikel menjadi ```Artikel ketiga``` :
+
+![image](https://github.com/roswanda11/lab12web/assets/115516632/3f68efc9-7efb-49cb-bd14-6b187cd82a85)
+
+- Setelah di klik simpan maka akan:
+
+![image](https://github.com/roswanda11/lab12web/assets/115516632/3e5edaea-4167-4bb4-bba5-90b15a733694)
+
+- Data pun berhasil diubah.
+
+![image](https://github.com/roswanda11/lab12web/assets/115516632/10c2b2d8-a73c-4495-8c41-c98a93e892d9)
+
+## 12. Setelah itu kita buat file hapus.php untuk menghapus data.
 
 ```
 <?php
@@ -427,7 +492,15 @@ if (mysqli_query($conn, $sql)) {
 
 ```
 
-## 12. Saya membuat file about.php agar tidak kosong mhehe.
+- Misal kita ingin menghapus ```Artike ketiga```,saatdi klik akanseperti ini:
+
+![image](https://github.com/roswanda11/lab12web/assets/115516632/bdb4f1a0-9d65-42dc-98a2-aed8bd80bd86)
+
+Dan data pun berhasil diapus.
+
+![image](https://github.com/roswanda11/lab12web/assets/115516632/fb57382a-0eb5-4df6-9413-76b9dc696268)
+
+## 13. Saya membuat file about.php agar tidak kosong 
 
 ```
 <?php include_once('template/header.php'); ?>
@@ -475,7 +548,7 @@ if (mysqli_query($conn, $sql)) {
 
         <h2>Contributors</h2>
         <p>
-            This project was created by Febriyani Nurhida and tech by Bapak Agung Nugroho S.kom., M.Kom.
+            This project was created by Roswanda Nuraini and tech by Bapak Agung Nugroho S.kom., M.Kom.
             We hope you find it useful for managing and presenting articles on your website!
         </p>
     </div>
@@ -486,19 +559,18 @@ if (mysqli_query($conn, $sql)) {
 
 ```
 
+- Outputnya akan seperti ini :
+  
+![image](https://github.com/roswanda11/lab12web/assets/115516632/ebc04fe5-4fe0-476c-9f2e-e4888fa74b8e)
 
+## Terakhir kita akan melakukan sesi logout. Karena diatas kita sudah membuat file logout bersamaan dengan file login, maka sekarang tinggal lita klik saya header logoutnya. 
 
+![image](https://github.com/roswanda11/lab12web/assets/115516632/4171c45f-7af8-4bc7-a472-3946e2cab35c)
 
+Maka tampilam akan kembali ke index, header logout berubah menjadi login, bagian tambah artikel dan about saat kita ingin melihatnya kita harus melakukan login terlebih dahulu.
 
+![image](https://github.com/roswanda11/lab12web/assets/115516632/e7a45bf5-ade0-433b-9452-562eb88d47c7)
 
+![image](https://github.com/roswanda11/lab12web/assets/115516632/29cdcd60-07b2-41ea-a2e1-5994919b4ece)
 
-
-
-
-
-
-
-
-
-
-
+# Alhamdulillah selesai juga lab1web-lab12web. OTW semester 4 nich
