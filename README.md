@@ -573,4 +573,4 @@ Maka tampilan akan kembali ke index, header logout berubah menjadi login, bagian
 
 ![image](https://github.com/roswanda11/lab12web/assets/115516632/29cdcd60-07b2-41ea-a2e1-5994919b4ece)
 
-# Alhamdulillah selesai juga lab1web-lab12web. OTW semester 4 nich
+# alhamdulillah selesai juga lab1web-lab12web. OTW semester 4 nich
